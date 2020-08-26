@@ -23,8 +23,10 @@ ros::Subscriber<std_msgs::Float32MultiArray> subSpeedMotors("/speed_motors", spe
 
 void publish_sensors_data() {
 	
+	read_sensors_data();
 	sharp_sensors_msgs.data_length = 2;
 	light_sensors_msgs.data_length = 4;
+
 	light_sensors_msgs.data[0] = ldr0();
 	light_sensors_msgs.data[1] = ldr1();
 	light_sensors_msgs.data[2] = ldr2();
