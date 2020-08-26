@@ -1,0 +1,40 @@
+
+
+1.- sudo apt-get update
+
+2.- sudo apt-get install arduino-mk
+
+3.- cd && mkdir sketchbook
+
+4.- cd sketchbook
+
+5.- cd /usr/share/arduino/
+
+6.- cd ~/sketchbook 
+
+7.- ls && vim blinky.ino
+
+8.- vim Makefile
+	ARDUINO_DIR = /usr/share/arduino
+	ARDUINO_PORT = /dev/ttyACM*
+	USER_LIB_PATH = /home/pi/sketchbook/libraries
+	BOARD_TAG = uno
+	
+	include /usr/share/arduino/Arduino.mk
+
+9.- mkdir libraries 
+
+10.- ls = blinky.ino libraries Makefile
+
+11.- make  
+
+12.- make upload
+
+13.- sudo apt-get install screen
+
+make upload monitor clean
+
+screen -list
+screen -r
+
+screen -X quit
