@@ -94,7 +94,10 @@ void motors_speed_pid(float goal_speed_left, float goal_speed_right) {
 	right_pwm = map(rightOutput, minPID, maxPID, minPWM, maxPWM); 
 	
 	if(goal_speed_left  < 0) leftFoward  = LOW;
+    else leftFoward = HIGH;
+    
 	if(goal_speed_right < 0) rightFoward = LOW;
+    else rightFoward = HIGH;
 
 	move_motors(leftFoward, left_pwm, rightFoward, right_pwm);
 }
