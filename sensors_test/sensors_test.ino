@@ -10,7 +10,7 @@ void loop() {
 	
 	read_sensors_data();
 	
-	Serial.print("[");
+	/*Serial.print("[");
 	Serial.print(left_sharp());
 	Serial.print(", ");
 	Serial.print(right_sharp());
@@ -22,7 +22,16 @@ void loop() {
 	Serial.print(ldr2());
 	Serial.print(", ");
 	Serial.print(ldr3());
-	Serial.println("]");	
+	Serial.println("]");//*/
+
+/*	Serial.print("left_sharp");
+	Serial.print(" ");
+	Serial.print(left_sharp());//*/
+
+	Serial.print("right_sharp");
+	Serial.print(" ");
+	Serial.println(right_sharp());
+	
 	
 	delay(200);	
 }
