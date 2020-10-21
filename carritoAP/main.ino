@@ -11,8 +11,8 @@
 ros::NodeHandle nh;
 
 float goal_speed[2];
-int sharp_sensor[2];
-int light_sensor[4];
+int sharp_sensor[8];
+int light_sensor[8];
 long encoder_data[2];
 
 std_msgs::Int32MultiArray encoders_msg;
@@ -42,15 +42,27 @@ void publish_odom() {
 void publish_sensors_data() {
 	
 	read_sensors_data();
-	sharp_sensors_msgs.data_length = 2;
-	light_sensors_msgs.data_length = 4;
+	sharp_sensors_msgs.data_length = 8;
+	light_sensors_msgs.data_length = 8;
 
 	light_sensor[0] = ldr0();
 	light_sensor[1] = ldr1();
 	light_sensor[2] = ldr2();
 	light_sensor[3] = ldr3();
-	sharp_sensor[0] =  left_sharp();
-	sharp_sensor[1] = right_sharp();
+	light_sensor[4] = ldr4();
+	light_sensor[5] = ldr5();
+	light_sensor[6] = ldr6();
+	light_sensor[7] = ldr7();
+
+
+	sharp_sensor[0] = sharp0();
+	sharp_sensor[1] = sharp1();
+	sharp_sensor[2] = sharp2();
+	sharp_sensor[3] = sharp3();
+	sharp_sensor[4] = sharp4();
+	sharp_sensor[5] = sharp5();
+	sharp_sensor[6] = sharp6();
+	sharp_sensor[7] = sharp7();
 	
 	light_sensors_msgs.data = light_sensor;
 	sharp_sensors_msgs.data = sharp_sensor;

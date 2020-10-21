@@ -40,8 +40,8 @@ float wheel_diameter = (43.38)/1000;
 double  leftSetpoint,  leftInput,  leftOutput;
 double rightSetpoint, rightInput, rightOutput;
 
-PID leftPID(&leftInput, &leftOutput, &leftSetpoint, 0.05, 6, 0.009, DIRECT);
-PID rightPID(&rightInput, &rightOutput, &rightSetpoint, 0.01, 5, 0.01, DIRECT);
+PID leftPID(&leftInput, &leftOutput, &leftSetpoint, 0.03, 2.5, 0.01, DIRECT);
+PID rightPID(&rightInput, &rightOutput, &rightSetpoint, 0.03, 2.5, 0.001, DIRECT);
 
 void set_pid_parameters() {
 

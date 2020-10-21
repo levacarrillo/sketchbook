@@ -1,5 +1,5 @@
 ARDUINO_DIR = /usr/share/arduino
-ARDUINO_PORT = /dev/ttyUSB*
+ARDUINO_PORT = /dev/ttyACM*
 
 USER_LIB_PATH += /home/$(USER)/sketchbook/libraries
 ARDUINO_LIBS += PID
