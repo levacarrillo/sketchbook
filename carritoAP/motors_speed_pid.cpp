@@ -40,8 +40,16 @@ float wheel_diameter = (43.38)/1000;
 double  leftSetpoint,  leftInput,  leftOutput;
 double rightSetpoint, rightInput, rightOutput;
 
-PID leftPID(&leftInput, &leftOutput, &leftSetpoint, 0.03, 2.5, 0.01, DIRECT);
-PID rightPID(&rightInput, &rightOutput, &rightSetpoint, 0.03, 2.5, 0.001, DIRECT);
+float left_kp = 0.001;
+float left_ki =   1.1;
+float left_kd = 0.001;
+
+float right_kp = 0.05;
+float right_ki =  1.01;
+float right_kd = 0.001;
+
+PID leftPID(&leftInput, &leftOutput, &leftSetpoint, left_kp, left_ki, left_kd, DIRECT);
+PID rightPID(&rightInput, &rightOutput, &rightSetpoint, right_kp, right_ki, right_kd, DIRECT);
 
 void set_pid_parameters() {
 
@@ -94,9 +102,11 @@ void motors_speed_pid(float goal_speed_left, float goal_speed_right) {
 	right_pwm = map(rightOutput, minPID, maxPID, minPWM, maxPWM); 
 	
 	if(goal_speed_left  < 0) leftFoward  = LOW;
+	else if(goal_speed_left == 0) left_pwm = 0;
     else leftFoward = HIGH;
     
 	if(goal_speed_right < 0) rightFoward = LOW;
+	else if(goal_speed_right == 0) right_pwm = 0;
     else rightFoward = HIGH;
 
 	move_motors(leftFoward, left_pwm, rightFoward, right_pwm);
